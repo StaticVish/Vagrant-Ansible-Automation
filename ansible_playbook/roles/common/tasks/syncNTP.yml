@@ -1,0 +1,22 @@
+---
+# tasks file for ansible-timedatectl
+- name: Setup timesync config
+  template:
+    src: timesyncd.conf.template
+    dest: /etc/systemd/timesyncd.conf
+  notify: run Timedatectl
+  when: ansible_service_mgr == "systemd"
+  become: yes
+
+- name: set Timezone
+  timezone: name={{ timedatectl_timezone }}
+  when: ansible_service_mgr == "systemd"
+  become: yes
+  
+- name: Chronyd service daemon reload and Restart
+  systemd:
+    name: chronyd
+    state: restarted
+    daemon_reload: yes  
+  become : yes
+  become_user: root

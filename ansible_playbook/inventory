@@ -1,0 +1,6 @@
+[Servers]
+192.168.33.10 ansible_connection=local
+
+[Servers:vars]
+ansible_ssh_user=vagrant
+ansible_sudo=yes

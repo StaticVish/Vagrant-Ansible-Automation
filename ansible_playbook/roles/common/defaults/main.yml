@@ -1,0 +1,13 @@
+---
+# defaults file for ansible-timedatectl
+timedatectl_timeservers: ['0.centos.pool.ntp.org',
+                        '1.centos.pool.ntp.org',
+                        '2.centos.pool.ntp.org',
+                        '3.centos.pool.ntp.org']
+
+timedatectl_timeservers_fallback: ['0.centos.pool.ntp.org',
+                        '1.centos.pool.ntp.org',
+                        '2.centos.pool.ntp.org',
+                        '3.centos.pool.ntp.org']                        
+
+timedatectl_timezone: Asia/Kuala_Lumpur
